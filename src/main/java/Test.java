@@ -37,7 +37,7 @@ public class Test {
 
         invoiceDownloadResultInfo.setLogs(logService.getLogs());
 
-        List<File> files = new ArrayList<File>();
+        List<File> files = new ArrayList<>();
         files.add(new File("/data/test1/1.pdf"));
         files.add(new File("/data/test1/2.xml"));
 
