@@ -46,6 +46,7 @@ public class Test {
 
         System.out.println(collectorApiService.completeDownload(invoiceDownloadResult));
 
+        collectorApiService.getSettingData();
     }
 
 }
