@@ -1,5 +1,6 @@
 
 
+import vbpo.st.collector.common.config.CollectorConfiguration;
 import vbpo.st.collector.common.dto.CollectorToken;
 import vbpo.st.collector.common.dto.InvoiceDownloadResult;
 import vbpo.st.collector.common.dto.InvoiceDownloadResultInfo;
@@ -16,11 +17,15 @@ import java.util.List;
 public class Test {
 
     public static void main(String[] args) throws IOException {
-        CollectorTokenRequester.requestAccessToken();
-        CollectorToken collectorToken = CollectorTokenRequester.getCollectorToken();
-        System.out.println(collectorToken.getAccess_token());
 
         CollectorApiService collectorApiService = new CollectorApiService();
+
+        collectorApiService.initCollectorConfiguration(null);
+        System.out.println(CollectorConfiguration.getSettingData());
+
+        CollectorTokenRequester.requestAccessToken();
+        CollectorToken collectorToken = CollectorTokenRequester.getCollectorToken();
+        System.out.println(collectorToken.getAccessToken());
 
         InvoiceDownloadResult invoiceDownloadResult = new InvoiceDownloadResult();
 
@@ -46,7 +51,6 @@ public class Test {
 
         System.out.println(collectorApiService.completeDownload(invoiceDownloadResult));
 
-        collectorApiService.getSettingData();
     }
 
 }

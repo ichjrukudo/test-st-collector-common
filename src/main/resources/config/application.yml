@@ -1,0 +1,8 @@
+collectorCommon:
+  tokenUrl: http://10.8.0.11:9999/oauth/token
+  restEndPoint: http://10.8.0.11:8082/api
+  username: super_admin
+  password: admin
+  grantType: password
+  clientId: web_app
+  clientSecret: changeit

@@ -4,14 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>test.st</groupId>
+    <groupId>test.st.collector.common</groupId>
     <artifactId>test-st-collector-common</artifactId>
     <version>1.0.0</version>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <abc>test</abc>
     </properties>
 
     <repositories>
@@ -23,7 +22,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>vbpo.st.collector</groupId>
+            <groupId>vn.vbpo.st.collector</groupId>
             <artifactId>st-collector-common</artifactId>
             <version>1.0.0</version>
         </dependency>
