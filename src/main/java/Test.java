@@ -1,7 +1,4 @@
-
-
-import vbpo.st.collector.common.config.CollectorConfiguration;
-import vbpo.st.collector.common.dto.CollectorToken;
+import vbpo.st.collector.common.dto.CollectorConfiguration;
 import vbpo.st.collector.common.dto.InvoiceDownloadResult;
 import vbpo.st.collector.common.dto.InvoiceDownloadResultInfo;
 import vbpo.st.collector.common.enumration.ResultStatus;
@@ -18,14 +15,18 @@ public class Test {
 
     public static void main(String[] args) throws IOException {
 
-        CollectorApiService collectorApiService = new CollectorApiService();
+        CollectorConfiguration collectorConfiguration = new CollectorConfiguration();
+        collectorConfiguration.setTokenUrl("http://10.8.0.11:9999/oauth/token");
+        collectorConfiguration.setClientId("web_app");
+        collectorConfiguration.setClientSecret("changeit");
+        collectorConfiguration.setUsername("super_admin");
+        collectorConfiguration.setPassword("admin");
+        collectorConfiguration.setGrantType("password");
+        collectorConfiguration.setRestEndPoint("http://10.8.0.11:8082/api");
 
-        collectorApiService.initCollectorConfiguration(null);
-        System.out.println(CollectorConfiguration.getSettingData());
-
-        CollectorTokenRequester.requestAccessToken();
-        CollectorToken collectorToken = CollectorTokenRequester.getCollectorToken();
-        System.out.println(collectorToken.getAccessToken());
+        CollectorApiService collectorApiService = new CollectorApiService(collectorConfiguration);
+        CollectorTokenRequester.requestNewAccessToken(collectorConfiguration);
+        System.out.println(CollectorTokenRequester.getCollectorToken().getAccessToken());
 
         InvoiceDownloadResult invoiceDownloadResult = new InvoiceDownloadResult();
 
